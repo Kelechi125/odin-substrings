@@ -35,9 +35,12 @@ def substrings do |string, dictionary|
     result = string.include?(substring)
 
     if result == true # If true, create an initial entry inside hash, and if multiple of same word in string, increment the entry
-      result_hash[substring] = 0
-
+      if !result_hash[substring]
+        result_hash[substring] = 0
+      end
+      result_hash[substring]++
     end
+    result_hash
   end
-
+  p result_hash
 end
