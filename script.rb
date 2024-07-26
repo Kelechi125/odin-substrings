@@ -9,38 +9,27 @@
 # When it identifies the dictionary elements that are in the input string
 # It needs to count how many times those elements appear in the input string
 
-dictionary = []
-
-puts "Input a number: "
-num = gets.chomp.to_i
-
-num.times do
-  puts "Input a word: "
+=begin
+def substrings
+  puts "Gimme a word: "
   word = gets.chomp
 
-  dictionary.push(word)
-end
+  dictionary = []
 
-p dictionary
+  puts "Input a number: "
+  num = gets.chomp.to_i
 
-def substrings do |string, dictionary|
-  puts "Type something: "
-  string = gets.chomp
-
-  dictionary = dictionary
-
-  result_hash = {}
-
-  dictionary.map do |substring|
-    result = string.include?(substring)
-
-    if result == true # If true, create an initial entry inside hash, and if multiple of same word in string, increment the entry
-      if !result_hash[substring]
-        result_hash[substring] = 0
-      end
-      result_hash[substring]++
-    end
-    result_hash
+  num.times do
+    puts "Input a word: "
+    word = gets.chomp
+  
+    dictionary.push(word)
   end
-  p result_hash
+
+  p dictionary
+end
+=end
+
+def substrings(words, array)
+  
 end
