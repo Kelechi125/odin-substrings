@@ -9,8 +9,19 @@
 def substrings(words, array)
   result_hash = {}
 
+  updated_hash = array.reduce(result_hash) do |hash, substring|
+    if words[substring] == substring
+      if !result_hash[substring]
+        result_hash[substring] = 0
+      end
+      result_hash[substring] += 1
+      result_hash
+    end
+    
+  end
   #split_words = words.split(" ")
 
+=begin
   updated_hash = array.map do |substring, hash|
     if words[substring] == substring
       if !result_hash[substring]
@@ -21,7 +32,7 @@ def substrings(words, array)
     end
     
   end
-
+=end
   p updated_hash
 =begin
   substring_counts = array.reduce(result_hash = {}) do |hash, substring|
