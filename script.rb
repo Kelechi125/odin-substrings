@@ -10,44 +10,23 @@ def substrings(words, array)
   result_hash = {}
 
   updated_hash = array.reduce(result_hash) do |hash, substring|
-    if words[substring] == substring
+    if words.downcase.include?(substring) == true
       if !result_hash[substring]
         result_hash[substring] = 0
       end
       result_hash[substring] += 1
       result_hash
     end
-    
+    result_hash
   end
-  #split_words = words.split(" ")
-
-=begin
-  updated_hash = array.map do |substring, hash|
-    if words[substring] == substring
-      if !result_hash[substring]
-        result_hash[substring] = 0
-      end
-      result_hash[substring] += 1
-      result_hash
-    end
-    
-  end
-=end
+  
   p updated_hash
-=begin
-  substring_counts = array.reduce(result_hash = {}) do |hash, substring|
-    if words.include?(substring) == true
-      if !hash[substring]
-        hash[substring] = 0
-      end
-
-      hash[substring] += 1
-      hash
-    end
-  end
-=end
 
 end
 
 dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","own","part","partner","sit"]
 substrings("below", dictionary)
+
+substrings("Howdy partner, sit down! How's it going?", dictionary)
+
+# "How" and "Howdy" aren't being picked up in the result due to case-sensitivity
