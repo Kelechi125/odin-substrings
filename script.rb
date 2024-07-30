@@ -13,16 +13,7 @@ def substrings(words, array)
 
   updated_hash = array.reduce(result_hash) do |hash, substring|
     if downcase_words.include?(substring) == true
-
-      # Need to count all occurences of substring within words immediately
       result_hash[substring] = downcase_words.gsub(substring).count
-
-      # Need to figure out how to count all occurences of substring
-      # The following code only says to increment by 1
-      # If the substring exists in the words string in general
-      
-
-      #debugger
 
       result_hash
     end
