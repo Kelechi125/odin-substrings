@@ -11,21 +11,16 @@ def substrings(words, array)
 
   updated_hash = array.reduce(result_hash) do |hash, substring|
     if words.downcase.include?(substring) == true
-      if !result_hash[substring]
-        result_hash[substring] = 0
-        result_hash[substring] += 1
-        result_hash
-      elsif result_hash[substring]
-        result_hash[substring] += 1
-        result_hash
-      end
+
+      # Need to count all occurences of substring within words immediately
+      result_hash[substring] = words.scan(substring).count
 
       # Need to figure out how to count all occurences of substring
       # The following code only says to increment by 1
       # If the substring exists in the words string in general
       
 
-      debugger
+      #debugger
 
       result_hash
     end
