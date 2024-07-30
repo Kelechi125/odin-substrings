@@ -13,8 +13,20 @@ def substrings(words, array)
     if words.downcase.include?(substring) == true
       if !result_hash[substring]
         result_hash[substring] = 0
+        result_hash[substring] += 1
+        result_hash
+      elsif result_hash[substring]
+        result_hash[substring] += 1
+        result_hash
       end
-      result_hash[substring] += 1
+
+      # Need to figure out how to count all occurences of substring
+      # The following code only says to increment by 1
+      # If the substring exists in the words string in general
+      
+
+      debugger
+
       result_hash
     end
     result_hash
@@ -25,7 +37,7 @@ def substrings(words, array)
 end
 
 dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","own","part","partner","sit"]
-substrings("below", dictionary)
+#substrings("below", dictionary)
 
 substrings("Howdy partner, sit down! How's it going?", dictionary)
 
