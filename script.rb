@@ -9,11 +9,13 @@
 def substrings(words, array)
   result_hash = {}
 
+  downcase_words = words.downcase
+
   updated_hash = array.reduce(result_hash) do |hash, substring|
-    if words.downcase.include?(substring) == true
+    if downcase_words.include?(substring) == true
 
       # Need to count all occurences of substring within words immediately
-      result_hash[substring] = words.scan(substring).count
+      result_hash[substring] = downcase_words.gsub(substring).count
 
       # Need to figure out how to count all occurences of substring
       # The following code only says to increment by 1
